@@ -9,7 +9,6 @@ namespace Chess.Controller
 {
     public static class GameController
     {
-        private static Square[,] board;
         private static IPiece[] blackPieces;
         private static IPiece[] whitePieces;
         private static MainWindow window;
@@ -21,12 +20,16 @@ namespace Chess.Controller
 
         public static void SetupGame(MainWindow Window)
         {
+            // setup board
             window = Window;
-            board = new Square[8, 8];
+            Square[,] board = new Square[8, 8];
             for (int i = 0; i < 8; ++i)
                 for (int j = 0; j < 8; ++j)
                     board[i, j] = new Square(i, j);
 
+            SquareUtils.board = board;
+
+            // setup pieces
             blackPieces = new IPiece[] { new Bishop(board[2, 3], PieceColor.Black) };
             whitePieces = new IPiece[] { new Bishop(board[6, 5], PieceColor.White) };
             foreach (IPiece piece in blackPieces)

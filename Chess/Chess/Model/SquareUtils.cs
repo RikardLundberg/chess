@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Chess.Model
 {
-    public static class SquareCalculations
+    public static class SquareUtils
     {
-        public static Square GetSquareFromName(Square[,] board, string name)
+        public static Square[,] board { get; set; }
+
+        public static Square[] GetDiagonals(Square CurrentPosition) { }
+
+        public static Square GetSquareFromName(string name)
         {
             char[] characters = name.ToCharArray();
             int column = 0;
