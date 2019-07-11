@@ -8,73 +8,77 @@
         Title="MainWindow" Height="600" Width="800" MaxWidth="800" MaxHeight="600" MinWidth="800" MinHeight="600">
     <Grid>
         <Grid Margin="32.5,83.5,0,0" MaxWidth="448" MaxHeight="448" ScrollViewer.VerticalScrollBarVisibility="Disabled" UseLayoutRounding="False" Width="448" Height="448" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="81*"/>
+                <RowDefinition Height="368*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Border x:Name="A8" BorderBrush="Black" BorderThickness="1,1,0,0" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Margin="0,0,0,392"/>
-            <Border x:Name="B8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="56,0,0,392" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="C8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="112,0,0,392" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="D8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="168,0,0,392" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="E8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="224,0,0,392" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="F8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="280,0,0,392" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="G8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="336,0,0,392" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="H8" BorderBrush="Black" BorderThickness="0,1,1,0" Margin="392,0,0,392" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="A7" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="B7" BorderBrush="Black" BorderThickness="0" Margin="56,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="C7" BorderBrush="Black" BorderThickness="0" Margin="112,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="D7" BorderBrush="Black" BorderThickness="0" Margin="168,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="E7" BorderBrush="Black" BorderThickness="0" Margin="224,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="F7" BorderBrush="Black" BorderThickness="0" Margin="280,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="G7" BorderBrush="Black" BorderThickness="0" Margin="336,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="H7" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
-            <Border x:Name="B6" BorderBrush="Black" BorderThickness="0" Margin="56,112,336,280" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="C6" BorderBrush="Black" BorderThickness="0" Margin="112,112,280,280" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="D6" BorderBrush="Black" BorderThickness="0" Margin="168,112,224,280" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="E6" BorderBrush="Black" BorderThickness="0" Margin="224,112,168,280" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="F6" BorderBrush="Black" BorderThickness="0" Margin="280,112,112,280" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="G6" BorderBrush="Black" BorderThickness="0" Margin="336,112,56,280" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="A6" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,112,392,280" Background="#FFF3C096" MouseDown="Square_Click" MaxWidth="58" MaxHeight="58" Width="58" Height="58"/>
-            <Border x:Name="H6" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,112,0,280" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="B5" BorderBrush="Black" BorderThickness="0" Margin="56,168,336,224" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="C5" BorderBrush="Black" BorderThickness="0" Margin="112,168,280,224" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="D5" BorderBrush="Black" BorderThickness="0" Margin="168,168,224,224" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="E5" BorderBrush="Black" BorderThickness="0" Margin="224,168,168,224" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="F5" BorderBrush="Black" BorderThickness="0" Margin="280,168,112,224" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="G5" BorderBrush="Black" BorderThickness="0" Margin="336,168,56,224" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="A5" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,168,392,224" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="H5" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,168,0,224" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="B4" BorderBrush="Black" BorderThickness="0" Margin="56,224,336,168" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="C4" BorderBrush="Black" BorderThickness="0" Margin="112,224,280,168" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="D4" BorderBrush="Black" BorderThickness="0" Margin="168,224,224,168" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="E4" BorderBrush="Black" BorderThickness="0" Margin="224,224,168,168" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="F4" BorderBrush="Black" BorderThickness="0" Margin="280,224,112,168" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="G4" BorderBrush="Black" BorderThickness="0" Margin="336,224,56,168" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="A4" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,224,392,168" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="H4" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,224,0,168" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="B3" BorderBrush="Black" BorderThickness="0" Margin="56,280,336,112" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="C3" BorderBrush="Black" BorderThickness="0" Margin="112,280,280,112" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="D3" BorderBrush="Black" BorderThickness="0" Margin="168,280,224,112" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="E3" BorderBrush="Black" BorderThickness="0" Margin="224,280,168,112" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="F3" BorderBrush="Black" BorderThickness="0" Margin="280,280,112,112" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="G3" BorderBrush="Black" BorderThickness="0" Margin="336,280,56,112" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="A3" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,280,392,112" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="H3" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,280,0,112" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="B2" BorderBrush="Black" BorderThickness="0" Margin="56,336,336,56" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="C2" BorderBrush="Black" BorderThickness="0" Margin="112,336,280,56" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="D2" BorderBrush="Black" BorderThickness="0" Margin="168,336,224,56" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="E2" BorderBrush="Black" BorderThickness="0" Margin="224,336,168,56" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="F2" BorderBrush="Black" BorderThickness="0" Margin="280,336,112,56" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="G2" BorderBrush="Black" BorderThickness="0" Margin="336,336,56,56" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="A2" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,336,392,56" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="H2" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,336,0,56" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="B1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="56,392,336,0" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="C1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="112,392,280,0" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="D1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="168,392,224,0" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="E1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="224,392,168,0" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="F1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="280,392,112,0" Background="#FFF3C096" MouseDown="Square_Click"/>
-            <Border x:Name="G1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="336,392,56,0" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="A1" BorderBrush="Black" BorderThickness="1,0,0,1" Margin="0,392,392,0" Background="#FFA8450D" MouseDown="Square_Click"/>
-            <Border x:Name="H1" BorderBrush="Black" BorderThickness="0,0,1,1" Margin="392,392,0,0" Background="#FFF3C096" MouseDown="Square_Click"/>
+            <Border x:Name="A8" BorderBrush="Black" BorderThickness="1,1,0,0" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Margin="0,0,0,24.5"/>
+            <Border x:Name="B8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="56,0,0,24.5" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="C8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="112,0,0,24.5" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="D8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="168,0,0,24.5" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="E8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="224,0,0,24.5" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="F8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="280,0,0,24.5" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="G8" BorderBrush="Black" BorderThickness="0,1,0,0" Margin="336,0,0,24.5" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="H8" BorderBrush="Black" BorderThickness="0,1,1,0" Margin="392,0,0,24.5" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56"/>
+            <Border x:Name="A7" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="B7" BorderBrush="Black" BorderThickness="0" Margin="56,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="C7" BorderBrush="Black" BorderThickness="0" Margin="112,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="D7" BorderBrush="Black" BorderThickness="0" Margin="168,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="E7" BorderBrush="Black" BorderThickness="0" Margin="224,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="F7" BorderBrush="Black" BorderThickness="0" Margin="280,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="G7" BorderBrush="Black" BorderThickness="0" Margin="336,56,0,336" Background="#FFA8450D" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="H7" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,56,0,336" Background="#FFF3C096" MouseDown="Square_Click" HorizontalAlignment="Left" Width="56" Grid.RowSpan="2"/>
+            <Border x:Name="B6" BorderBrush="Black" BorderThickness="0" Margin="56,31.5,336,280" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="C6" BorderBrush="Black" BorderThickness="0" Margin="112,31.5,280,280" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="D6" BorderBrush="Black" BorderThickness="0" Margin="168,31.5,224,280" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="E6" BorderBrush="Black" BorderThickness="0" Margin="224,31.5,168,280" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="F6" BorderBrush="Black" BorderThickness="0" Margin="280,31.5,112,280" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="G6" BorderBrush="Black" BorderThickness="0" Margin="336,31.5,56,280" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="A6" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,31.5,390,278" Background="#FFF3C096" MouseDown="Square_Click" MaxWidth="58" MaxHeight="58" Width="58" Height="58" Grid.Row="1"/>
+            <Border x:Name="H6" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,31.5,0,280" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="B5" BorderBrush="Black" BorderThickness="0" Margin="56,87.5,336,224" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="C5" BorderBrush="Black" BorderThickness="0" Margin="112,87.5,280,224" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="D5" BorderBrush="Black" BorderThickness="0" Margin="168,87.5,224,224" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="E5" BorderBrush="Black" BorderThickness="0" Margin="224,87.5,168,224" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="F5" BorderBrush="Black" BorderThickness="0" Margin="280,87.5,112,224" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="G5" BorderBrush="Black" BorderThickness="0" Margin="336,87.5,56,224" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="A5" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,87.5,392,224" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="H5" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,87.5,0,224" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="B4" BorderBrush="Black" BorderThickness="0" Margin="56,143.5,336,168" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="C4" BorderBrush="Black" BorderThickness="0" Margin="112,143.5,280,168" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="D4" BorderBrush="Black" BorderThickness="0" Margin="168,143.5,224,168" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="E4" BorderBrush="Black" BorderThickness="0" Margin="224,143.5,168,168" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="F4" BorderBrush="Black" BorderThickness="0" Margin="280,143.5,112,168" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="G4" BorderBrush="Black" BorderThickness="0" Margin="336,143.5,56,168" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="A4" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,143.5,392,168" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="H4" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,143.5,0,168" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="B3" BorderBrush="Black" BorderThickness="0" Margin="56,199.5,336,112" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="C3" BorderBrush="Black" BorderThickness="0" Margin="112,199.5,280,112" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="D3" BorderBrush="Black" BorderThickness="0" Margin="168,199.5,224,112" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="E3" BorderBrush="Black" BorderThickness="0" Margin="224,199.5,168,112" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="F3" BorderBrush="Black" BorderThickness="0" Margin="280,199.5,112,112" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="G3" BorderBrush="Black" BorderThickness="0" Margin="336,199.5,56,112" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="A3" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,199.5,392,112" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="H3" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,199.5,0,112" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="B2" BorderBrush="Black" BorderThickness="0" Margin="56,255.5,336,56" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="C2" BorderBrush="Black" BorderThickness="0" Margin="112,255.5,280,56" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="D2" BorderBrush="Black" BorderThickness="0" Margin="168,255.5,224,56" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="E2" BorderBrush="Black" BorderThickness="0" Margin="224,255.5,168,56" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="F2" BorderBrush="Black" BorderThickness="0" Margin="280,255.5,112,56" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="G2" BorderBrush="Black" BorderThickness="0" Margin="336,255.5,56,56" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="A2" BorderBrush="Black" BorderThickness="1,0,0,0" Margin="0,255.5,392,56" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="H2" BorderBrush="Black" BorderThickness="0,0,1,0" Margin="392,255.5,0,56" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="B1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="56,311.5,336,0" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="C1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="112,311.5,280,0" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="D1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="168,311.5,224,0" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="E1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="224,311.5,168,0" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="F1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="280,311.5,112,0" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="G1" BorderBrush="Black" BorderThickness="0,0,0,1" Margin="336,311.5,56,0" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="A1" BorderBrush="Black" BorderThickness="1,0,0,1" Margin="0,311.5,392,0" Background="#FFA8450D" MouseDown="Square_Click" Grid.Row="1"/>
+            <Border x:Name="H1" BorderBrush="Black" BorderThickness="0,0,1,1" Margin="392,311.5,0,0" Background="#FFF3C096" MouseDown="Square_Click" Grid.Row="1"/>
         </Grid>
         <Label x:Name="label" Content="8" HorizontalAlignment="Left" Margin="6,94,0,0" VerticalAlignment="Top" Height="35" Width="26" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="label_Copy" Content="7" HorizontalAlignment="Left" Margin="6,150,0,0" VerticalAlignment="Top" Height="30" Width="26" FontSize="20" FontWeight="Bold"/>
