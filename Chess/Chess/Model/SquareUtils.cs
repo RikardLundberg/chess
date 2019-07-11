@@ -10,7 +10,21 @@ namespace Chess.Model
     {
         public static Square[,] board { get; set; }
 
-        public static Square[] GetDiagonals(Square CurrentPosition) { }
+        public static Square[] GetDiagonals(Square CurrentPosition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Square[] GetStraights(Square CurrentPosition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Square[] GetKnightSquares(Square CurrentPosition)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public static Square GetSquareFromName(string name)
         {
