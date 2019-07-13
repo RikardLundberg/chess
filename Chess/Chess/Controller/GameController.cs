@@ -7,21 +7,25 @@ using Chess.Model;
 
 namespace Chess.Controller
 {
-    public static class GameController
+    public class GameController
     {
-        private static IPiece[] blackPieces;
-        private static IPiece[] whitePieces;
-        private static MainWindow window;
+        private IPiece[] blackPieces;
+        private IPiece[] whitePieces;
+        private MainWindow Window;
 
-        public static void StartGame()
+        public GameController(MainWindow Window)
+        {
+            this.Window = Window;
+        }
+
+        public void StartGame()
         {
 
-        } 
+        }
 
-        public static void SetupGame(MainWindow Window)
+        public void SetupGame()
         {
             // setup board
-            window = Window;
             Square[,] board = new Square[8, 8];
             for (int i = 0; i < 8; ++i)
                 for (int j = 0; j < 8; ++j)
@@ -33,12 +37,12 @@ namespace Chess.Controller
             blackPieces = new IPiece[] { new Bishop(board[2, 3], PieceColor.Black) };
             whitePieces = new IPiece[] { new Bishop(board[6, 5], PieceColor.White) };
             foreach (IPiece piece in blackPieces)
-                window.DrawPiece(piece);
+                Window.DrawPiece(piece);
             foreach (IPiece piece in whitePieces)
-                window.DrawPiece(piece);
+                Window.DrawPiece(piece);
         }
 
-        private static void MovePiece(Square from, Square to, IPiece piece)
+        private void MovePiece(Square from, Square to, IPiece piece)
         {
 
         }

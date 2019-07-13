@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Chess.Model;
 
 namespace Chess
 {
@@ -20,18 +21,46 @@ namespace Chess
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Controller.GameController GameController { get; set; }
+        private string SelectedBorderName { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            Controller.GameController.SetupGame(this);
-            Controller.GameController.StartGame();
+            GameController = new Controller.GameController(this);
+            SelectedBorderName = "";
         }
 
         private void Square_Click(object sender, MouseButtonEventArgs e)
         {
             if (!(sender is Border))
                 return;
-            System.Windows.Forms.MessageBox.Show("You clicked "+((Border)sender).Name+"!");
+
+            if (SelectedBorderName != "")
+            {
+                //if valid move
+                //move
+            }
+            else
+                SelectBorder((Border)sender);
+            //System.Windows.Forms.MessageBox.Show("You clicked "+((Border)sender).Name+"!");
+        }
+
+        private void SelectBorder(Border border)
+        {
+            SelectedBorderName = border.Name;
+            border.BorderThickness = new Thickness(5, 5, 5, 5);
+            border.BorderBrush = System.Windows.Media.Brushes.Aquamarine;
+        }
+
+        private void UnselectCurrentSelectedBorder()
+        {
+            object squareBorder = this.FindName(SelectedBorderName);
+            if (squareBorder is Border)
+            {
+                ((Border)squareBorder).BorderThickness = new Thickness(0,0,0,0);
+                SelectedBorderName = "";
+            }
         }
 
         public void DrawPiece(Model.IPiece piece)
@@ -69,5 +98,10 @@ namespace Chess
 
         }
 
+        private void StartNewGame(object sender, RoutedEventArgs e)
+        {
+            GameController.SetupGame();
+            GameController.StartGame();
+        }
     }
 }
