@@ -22,13 +22,11 @@ namespace Chess
     public partial class MainWindow : Window
     {
         private Controller.GameController GameController { get; set; }
-        private string SelectedBorderName { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             GameController = new Controller.GameController(this);
-            SelectedBorderName = "";
         }
 
         private void Square_Click(object sender, MouseButtonEventArgs e)
@@ -42,24 +40,26 @@ namespace Chess
                 //move
             }
             else
-                SelectBorder((Border)sender);
+                SelectBorder();
             //System.Windows.Forms.MessageBox.Show("You clicked "+((Border)sender).Name+"!");
         }
 
-        private void SelectBorder(Border border)
+        public void SelectSquare(string squareName)
         {
-            SelectedBorderName = border.Name;
-            border.BorderThickness = new Thickness(5, 5, 5, 5);
-            border.BorderBrush = System.Windows.Media.Brushes.Aquamarine;
+            object squareBorder = this.FindName(squareName);
+            if (squareBorder is Border)
+            {
+                ((Border)squareBorder).BorderThickness = new Thickness(5, 5, 5, 5);
+                ((Border)squareBorder).BorderBrush = System.Windows.Media.Brushes.Aquamarine;
+            }
         }
 
-        private void UnselectCurrentSelectedBorder()
+        public void UnselectSquare(string squareName)
         {
-            object squareBorder = this.FindName(SelectedBorderName);
+            object squareBorder = this.FindName(squareName);
             if (squareBorder is Border)
             {
                 ((Border)squareBorder).BorderThickness = new Thickness(0,0,0,0);
-                SelectedBorderName = "";
             }
         }
 

@@ -12,6 +12,7 @@ namespace Chess.Controller
         private IPiece[] blackPieces;
         private IPiece[] whitePieces;
         private MainWindow Window;
+        private Square CurrentSelectedSquare;
 
         public GameController(MainWindow Window)
         {
@@ -40,6 +41,22 @@ namespace Chess.Controller
                 Window.DrawPiece(piece);
             foreach (IPiece piece in whitePieces)
                 Window.DrawPiece(piece);
+        }
+
+        public void SelectSquare(string squareName)
+        {
+            var NewSelection = SquareUtils.GetSquareFromName(squareName);
+
+            if (CurrentSelectedSquare == null)
+                Window.SelectSquare(NewSelection.Name);
+            else if (CurrentSelectedSquare.Name != NewSelection.Name)
+            {
+                if (CurrentSelectedSquare.Piece.GetValidMoves().Where(x => x.Name == NewSelection.Name).Count() > 0)
+                {
+                    //move
+                }
+            }
+
         }
 
         private void MovePiece(Square from, Square to, IPiece piece)

@@ -24,7 +24,7 @@ namespace Chess.Model
 
         public Square[] GetValidMoves()
         {
-            throw new NotImplementedException();
+            return SquareUtils.GetDiagonals(Square);
         }
     }
 }
