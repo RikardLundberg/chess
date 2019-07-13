@@ -11,20 +11,19 @@ namespace Chess.Model
         public PieceType Type => PieceType.Bishop;
 
         public bool IsAlive { get; set; }
-        public Square Square { get; set; }
-        private PieceColor color { get; set; }
-        public PieceColor Color => color;
+        //public Square Square { get; set; }
+        public PieceColor Color { get; private set; }
 
-        public Bishop(Square position, PieceColor color)
+        public Bishop(/*Square position,*/ PieceColor color)
         {
-            Square = position;
+            //Square = position;
             IsAlive = true;
-            this.color = color;
+            Color = color;
         }
 
-        public Square[] GetValidMoves()
+        public Square[] GetValidMoves(Square square)
         {
-            return SquareUtils.GetDiagonals(Square);
+            return SquareUtils.GetDiagonals(square, Color);
         }
     }
 }

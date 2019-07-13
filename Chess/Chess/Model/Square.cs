@@ -21,20 +21,7 @@ namespace Chess.Model
 
         public string GetSquareName()
         {
-            string name = "";
-            switch (Column)
-            {
-                case 0: name += "A"; break;
-                case 1: name += "B"; break;
-                case 2: name += "C"; break;
-                case 3: name += "D"; break;
-                case 4: name += "E"; break;
-                case 5: name += "F"; break;
-                case 6: name += "G"; break;
-                case 7: name += "H"; break;
-            }
-            name += Row + 1;
-            return name;
+            return SquareUtils.GetSquareNameFromColAndRow(Column, Row);
         }
     }
 }

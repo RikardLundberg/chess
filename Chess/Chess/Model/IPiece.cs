@@ -12,8 +12,8 @@ namespace Chess.Model
     public interface IPiece
     {
         bool IsAlive { get; set; }
-        Square[] GetValidMoves();
-        Square Square { get; set; }
+        Square[] GetValidMoves(Square square);
+        //Square Square { get; set; }
         PieceType Type { get; }
         PieceColor Color { get; }
     }

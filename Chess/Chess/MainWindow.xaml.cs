@@ -27,6 +27,8 @@ namespace Chess
         {
             InitializeComponent();
             GameController = new Controller.GameController(this);
+            GameController.SetupGame();
+            GameController.StartGame();
         }
 
         private void Square_Click(object sender, MouseButtonEventArgs e)
@@ -34,13 +36,13 @@ namespace Chess
             if (!(sender is Border))
                 return;
 
-            if (SelectedBorderName != "")
+            GameController.SelectSquare(((Border)sender).Name);
+            /*if (SelectedBorderName != "")
             {
-                //if valid move
-                //move
             }
             else
-                SelectBorder();
+                SelectBorder();*/
+
             //System.Windows.Forms.MessageBox.Show("You clicked "+((Border)sender).Name+"!");
         }
 
@@ -63,13 +65,14 @@ namespace Chess
             }
         }
 
-        public void DrawPiece(Model.IPiece piece)
+        public void DrawPiece(IPiece piece, string squareName)
         {
             switch (piece.Type)
             {
                 case Model.PieceType.Bishop:
-                    if (piece.Color == Model.PieceColor.White) WriteInSquare("♗", piece.Square.Name);
-                    else if (piece.Color == Model.PieceColor.Black) WriteInSquare("♝", piece.Square.Name);
+                    if (piece.Color == Model.PieceColor.White) WriteInSquare("♗", squareName);
+                    if (piece.Color == Model.PieceColor.White) WriteInSquare("♗", squareName);
+                    else if (piece.Color == Model.PieceColor.Black) WriteInSquare("♝", squareName);
                     break;
             }
         }
@@ -93,9 +96,14 @@ namespace Chess
             }
         }
 
-        public void ClearSquare(Model.Square square)
+        public void ClearSquare(string squareName)
         {
-
+            object squareBorder = this.FindName(squareName);
+            if (squareBorder is Border)
+            {
+                //MainGrid.Children.Remove(((Border)squareBorder).Child);
+                ((Border)squareBorder).Child = null;
+            }
         }
 
         private void StartNewGame(object sender, RoutedEventArgs e)
