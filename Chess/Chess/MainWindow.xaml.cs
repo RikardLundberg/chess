@@ -39,13 +39,13 @@ namespace Chess
             switch (piece.Type)
             {
                 case Model.PieceType.Bishop:
-                    if (piece.Color == Model.PieceColor.White) WriteInSquare("B", piece.Square.Name, Colors.White);
-                    else if (piece.Color == Model.PieceColor.Black) WriteInSquare("B", piece.Square.Name, Colors.Black);
+                    if (piece.Color == Model.PieceColor.White) WriteInSquare("♗", piece.Square.Name);
+                    else if (piece.Color == Model.PieceColor.Black) WriteInSquare("♝", piece.Square.Name);
                     break;
             }
         }
 
-        private void WriteInSquare(string pieceName, string squareName, Color color)
+        private void WriteInSquare(string pieceName, string squareName)
         {
             object squareBorder = this.FindName(squareName);
             if (squareBorder is Border)
@@ -53,9 +53,12 @@ namespace Chess
                 Label label = new Label
                 {
                     Content = pieceName,
-                    Foreground = new SolidColorBrush(color),
-                    FontSize = 40,
-                    Margin = new Thickness(10, 0, 2, 0)
+                    VerticalAlignment = VerticalAlignment.Bottom,
+                    HorizontalAlignment = HorizontalAlignment.Right,
+                    Height = 68,
+                    Width = 58,
+                    FontSize = 50,
+                    Margin = new Thickness(0, 0, 0, 0)
                 };
                 ((Border)squareBorder).Child = label;
             }
