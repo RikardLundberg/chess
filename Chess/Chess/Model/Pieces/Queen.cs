@@ -15,19 +15,20 @@ namespace Chess.Model
         public override PieceType Type => PieceType.Bishop;
 
         public override bool IsAlive { get; set; }
-        //public Square Square { get; set; }
+        public override Square Square { get; set; }
         public override PieceColor Color { get; set; }
 
-        public Queen(/*Square position,*/ PieceColor color)
+        public Queen(Square position, PieceColor color)
         {
-            //Square = position;
+            Square = position;
             IsAlive = true;
             Color = color;
         }
 
-        public override Square[] GetValidMoves(Square square)
+        public override Square[] GetValidMoves()
         {
-            return new Square[0];
+            var squares = SquareUtils.GetDiagonals(Square, Color);
+            return squares.Concat(SquareUtils.GetStraights(Square, Color)).ToArray();
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Chess.Model
     public abstract class Piece
     {
         public abstract bool IsAlive { get; set; }
-        public abstract Square[] GetValidMoves(Square square);
-        //Square Square { get; set; }
+        public abstract Square[] GetValidMoves();
+        public abstract Square Square { get; set; }
         public abstract PieceType Type { get; }
         public abstract PieceColor Color { get; set; }
         public abstract override string ToString();

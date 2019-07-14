@@ -45,28 +45,36 @@ namespace Chess.Controller
             whitePieces = PlaceWhitePieces(board);
         }
 
-        private Piece[] PlaceBlackPieces(Square [,] board)
+        private Piece[] PlaceBlackPieces(Square[,] board)
         {
-            return new Piece []
+            return new Piece[]
             {
-                PlacePiece(new Bishop(PieceColor.Black), board[2, 7]),
-                PlacePiece(new Bishop(PieceColor.Black), board[5, 7])
+                PlacePiece(new Bishop(board[2, 7], PieceColor.Black)),
+                PlacePiece(new Bishop(board[5, 7], PieceColor.Black)),
+                PlacePiece(new Pawn(board[0, 6], PieceColor.Black)),
+                PlacePiece(new Rook(board[0, 7], PieceColor.Black)),
+                PlacePiece(new Queen(board[3, 7], PieceColor.Black))
+
             };
         }
 
         private Piece[] PlaceWhitePieces(Square[,] board)
         {
-            return new Piece []
+            return new Piece[]
             {
-                PlacePiece(new Bishop(PieceColor.White), board[2, 0]),
-                PlacePiece(new Bishop(PieceColor.White), board[5, 0])
+                PlacePiece(new Bishop(board[2, 0], PieceColor.White)),
+                PlacePiece(new Bishop(board[5, 0], PieceColor.White)),
+                PlacePiece(new Pawn(board[0, 1], PieceColor.White)),
+                PlacePiece(new Rook(board[0, 0], PieceColor.White)),
+                PlacePiece(new Queen(board[3, 0], PieceColor.White))
+
             };
         }
 
-        private Piece PlacePiece(Piece piece, Square square)
+        private Piece PlacePiece(Piece piece)
         {
-            square.Piece = piece;
-            Window.DrawPiece(piece, square.Name);
+            piece.Square.Piece = piece;
+            Window.DrawPiece(piece, piece.Square.Name);
             return piece;
         }
 
@@ -77,7 +85,7 @@ namespace Chess.Controller
 
             if (CurrentSelectedSquare == null) // no preselection
             {
-                if(NewSelection.Piece != null && NewSelection.Piece.Color != CurrentPlayer)
+                if (NewSelection.Piece != null && NewSelection.Piece.Color != CurrentPlayer)
                 {
                     Window.UpdateWarning("Piece cannot move this turn");
                     return;
@@ -87,14 +95,14 @@ namespace Chess.Controller
                 CurrentSelectedSquare = NewSelection;
                 if (NewSelection.Piece != null)
                 {
-                    Window.HighlightSquares(NewSelection.Piece.GetValidMoves(NewSelection).Select(x => x.Name).ToArray());
+                    Window.HighlightSquares(NewSelection.Piece.GetValidMoves().Select(x => x.Name).ToArray());
                 }
             }
             else if (CurrentSelectedSquare.Name != NewSelection.Name) // found preselection
             {
 
                 if (CurrentSelectedSquare.Piece != null)
-                    Window.UnHighlightSquares(CurrentSelectedSquare.Piece.GetValidMoves(CurrentSelectedSquare).Select(x => x.Name).ToArray());
+                    Window.UnHighlightSquares(CurrentSelectedSquare.Piece.GetValidMoves().Select(x => x.Name).ToArray());
 
                 if (CurrentSelectedSquare.Piece == null)
                 {
@@ -102,7 +110,7 @@ namespace Chess.Controller
                     Window.SelectSquare(NewSelection.Name);
                     CurrentSelectedSquare = NewSelection;
                 }
-                else if (CurrentSelectedSquare.Piece.GetValidMoves(CurrentSelectedSquare).Where(x => x.Name == NewSelection.Name).Count() > 0)
+                else if (CurrentSelectedSquare.Piece.GetValidMoves().Where(x => x.Name == NewSelection.Name).Count() > 0)
                 {
                     //move
                     MovePiece(CurrentSelectedSquare, NewSelection, CurrentSelectedSquare.Piece);
@@ -125,6 +133,7 @@ namespace Chess.Controller
             Window.ClearSquare(from.Name);
             from.Piece = null;
             to.Piece = piece;
+            piece.Square = to;
             Window.DrawPiece(piece, to.Name);
         }
     }
