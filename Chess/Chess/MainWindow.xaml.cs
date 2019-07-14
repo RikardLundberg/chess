@@ -56,6 +56,25 @@ namespace Chess
             }
         }
 
+        public void HighlightSquares(string[] squareNames)
+        {
+            foreach (string squareName in squareNames)
+            {
+                object squareBorder = this.FindName(squareName);
+                if (squareBorder is Border)
+                {
+                    ((Border)squareBorder).BorderThickness = new Thickness(5, 5, 5, 5);
+                    ((Border)squareBorder).BorderBrush = System.Windows.Media.Brushes.LightYellow;
+                }
+            }
+        }
+
+        public void UnHighlightSquares(string[] squareNames)
+        {
+            foreach (string squareName in squareNames)
+                UnselectSquare(squareName);
+        }
+
         public void UnselectSquare(string squareName)
         {
             object squareBorder = this.FindName(squareName);
@@ -65,16 +84,17 @@ namespace Chess
             }
         }
 
-        public void DrawPiece(IPiece piece, string squareName)
+        public void DrawPiece(Piece piece, string squareName)
         {
-            switch (piece.Type)
+            WriteInSquare(piece.ToString(), squareName);
+            /*switch (piece.Type)
             {
                 case Model.PieceType.Bishop:
                     if (piece.Color == Model.PieceColor.White) WriteInSquare("♗", squareName);
                     if (piece.Color == Model.PieceColor.White) WriteInSquare("♗", squareName);
                     else if (piece.Color == Model.PieceColor.Black) WriteInSquare("♝", squareName);
                     break;
-            }
+            }*/
         }
 
         private void WriteInSquare(string pieceName, string squareName)

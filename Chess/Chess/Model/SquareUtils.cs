@@ -85,6 +85,21 @@ namespace Chess.Model
             throw new NotImplementedException();
         }
 
+        public static Square[] GetPawnAttackSquares(Square CurrentPosition)
+        {
+
+        }
+
+        public static Square[] GetPawnMoveSquares(Square CurrentPosition)
+        {
+            if(CurrentPosition.Row == 1 && )
+        }
+
+        public static Square[] GetKingSquares()
+        {
+
+        }
+
         public static string GetSquareNameFromColAndRow(int column, int row)
         {
             string name = "";

@@ -9,8 +9,8 @@ namespace Chess.Controller
 {
     public class GameController
     {
-        private IPiece[] blackPieces;
-        private IPiece[] whitePieces;
+        private Piece[] blackPieces;
+        private Piece[] whitePieces;
         private MainWindow Window;
         private Square CurrentSelectedSquare;
         private PieceColor CurrentPlayer;
@@ -45,25 +45,25 @@ namespace Chess.Controller
             whitePieces = PlaceWhitePieces(board);
         }
 
-        private IPiece[] PlaceBlackPieces(Square [,] board)
+        private Piece[] PlaceBlackPieces(Square [,] board)
         {
-            return new IPiece []
+            return new Piece []
             {
                 PlacePiece(new Bishop(PieceColor.Black), board[2, 7]),
                 PlacePiece(new Bishop(PieceColor.Black), board[5, 7])
             };
         }
 
-        private IPiece[] PlaceWhitePieces(Square[,] board)
+        private Piece[] PlaceWhitePieces(Square[,] board)
         {
-            return new IPiece []
+            return new Piece []
             {
                 PlacePiece(new Bishop(PieceColor.White), board[2, 0]),
                 PlacePiece(new Bishop(PieceColor.White), board[5, 0])
             };
         }
 
-        private IPiece PlacePiece(IPiece piece, Square square)
+        private Piece PlacePiece(Piece piece, Square square)
         {
             square.Piece = piece;
             Window.DrawPiece(piece, square.Name);
@@ -75,7 +75,7 @@ namespace Chess.Controller
             var NewSelection = SquareUtils.GetSquareFromName(squareName);
             Window.UpdateWarning("");
 
-            if (CurrentSelectedSquare == null)
+            if (CurrentSelectedSquare == null) // no preselection
             {
                 if(NewSelection.Piece != null && NewSelection.Piece.Color != CurrentPlayer)
                 {
@@ -85,9 +85,17 @@ namespace Chess.Controller
 
                 Window.SelectSquare(NewSelection.Name);
                 CurrentSelectedSquare = NewSelection;
+                if (NewSelection.Piece != null)
+                {
+                    Window.HighlightSquares(NewSelection.Piece.GetValidMoves(NewSelection).Select(x => x.Name).ToArray());
+                }
             }
-            else if (CurrentSelectedSquare.Name != NewSelection.Name)
+            else if (CurrentSelectedSquare.Name != NewSelection.Name) // found preselection
             {
+
+                if (CurrentSelectedSquare.Piece != null)
+                    Window.UnHighlightSquares(CurrentSelectedSquare.Piece.GetValidMoves(CurrentSelectedSquare).Select(x => x.Name).ToArray());
+
                 if (CurrentSelectedSquare.Piece == null)
                 {
                     Window.UnselectSquare(CurrentSelectedSquare.Name);
@@ -111,7 +119,7 @@ namespace Chess.Controller
 
         }
 
-        private void MovePiece(Square from, Square to, IPiece piece)
+        private void MovePiece(Square from, Square to, Piece piece)
         {
             Window.UnselectSquare(from.Name);
             Window.ClearSquare(from.Name);

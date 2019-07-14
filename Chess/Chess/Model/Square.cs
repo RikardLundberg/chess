@@ -9,7 +9,7 @@ namespace Chess.Model
     public class Square
     {
         public string Name { get { return GetSquareName(); } }
-        public IPiece Piece { get; set; }
+        public Piece Piece { get; set; }
         public int Column { get; set; }
         public int Row { get; set; }
 
