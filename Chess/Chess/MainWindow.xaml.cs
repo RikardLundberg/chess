@@ -106,6 +106,17 @@ namespace Chess
             }
         }
 
+        public void UpdateCurrentPlayerLabel(string currentPlayer)
+        {
+            CurrentPlayerLabel.Content = currentPlayer;
+        }
+
+        public void UpdateWarning(string warningMessage)
+        {
+            WarningLabel.Content = warningMessage;
+            WarningLabel.Visibility = Visibility.Visible;
+        }
+
         private void StartNewGame(object sender, RoutedEventArgs e)
         {
             GameController.SetupGame();

@@ -8,6 +8,10 @@ namespace Chess.Model
 {
     public class Bishop : IPiece
     {
+        public override string ToString()
+        {
+
+        }
         public PieceType Type => PieceType.Bishop;
 
         public bool IsAlive { get; set; }

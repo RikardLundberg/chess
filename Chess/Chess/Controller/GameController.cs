@@ -13,6 +13,7 @@ namespace Chess.Controller
         private IPiece[] whitePieces;
         private MainWindow Window;
         private Square CurrentSelectedSquare;
+        private PieceColor CurrentPlayer;
 
         public GameController(MainWindow Window)
         {
@@ -21,6 +22,8 @@ namespace Chess.Controller
 
         public void StartGame()
         {
+            CurrentPlayer = PieceColor.White;
+            Window.UpdateCurrentPlayerLabel(CurrentPlayer.ToString());
 
         }
 
@@ -46,7 +49,8 @@ namespace Chess.Controller
         {
             return new IPiece []
             {
-                PlacePiece(new Bishop(PieceColor.Black), board[2, 3])
+                PlacePiece(new Bishop(PieceColor.Black), board[2, 7]),
+                PlacePiece(new Bishop(PieceColor.Black), board[5, 7])
             };
         }
 
@@ -54,7 +58,8 @@ namespace Chess.Controller
         {
             return new IPiece []
             {
-                PlacePiece(new Bishop(PieceColor.White), board[6, 5])
+                PlacePiece(new Bishop(PieceColor.White), board[2, 0]),
+                PlacePiece(new Bishop(PieceColor.White), board[5, 0])
             };
         }
 
@@ -68,9 +73,16 @@ namespace Chess.Controller
         public void SelectSquare(string squareName)
         {
             var NewSelection = SquareUtils.GetSquareFromName(squareName);
+            Window.UpdateWarning("");
 
             if (CurrentSelectedSquare == null)
             {
+                if(NewSelection.Piece != null && NewSelection.Piece.Color != CurrentPlayer)
+                {
+                    Window.UpdateWarning("Piece cannot move this turn");
+                    return;
+                }
+
                 Window.SelectSquare(NewSelection.Name);
                 CurrentSelectedSquare = NewSelection;
             }
@@ -87,6 +99,8 @@ namespace Chess.Controller
                     //move
                     MovePiece(CurrentSelectedSquare, NewSelection, CurrentSelectedSquare.Piece);
                     CurrentSelectedSquare = null;
+                    CurrentPlayer = CurrentPlayer == PieceColor.White ? PieceColor.Black : PieceColor.White;
+                    Window.UpdateCurrentPlayerLabel(CurrentPlayer.ToString());
                 }
                 else
                 {
