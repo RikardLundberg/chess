@@ -27,7 +27,7 @@ namespace Chess.Model
 
         public override Square[] GetValidMoves()
         {
-            return new Square[0];
+            return SquareUtils.GetKingSquares(Square, Color);
         }
     }
 }

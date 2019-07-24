@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" MaxWidth="800" MaxHeight="600" MinWidth="800" MinHeight="600">
-    <Grid>
+        Title="Chess" Height="600" Width="640" MaxWidth="800" MaxHeight="600" MinWidth="620" MinHeight="600">
+    <Grid Margin="0,0,2,0">
         <Grid x:Name="MainGrid" Margin="32.5,83.5,0,0" MaxWidth="448" MaxHeight="448" ScrollViewer.VerticalScrollBarVisibility="Disabled" UseLayoutRounding="False" Width="448" Height="448" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="81*"/>
@@ -97,7 +97,7 @@
         <Label x:Name="label_Copy13" Content="f" HorizontalAlignment="Left" Margin="324,526,0,0" VerticalAlignment="Top" Height="34" Width="26" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="label_Copy14" Content="g" HorizontalAlignment="Left" Margin="378,526,0,0" VerticalAlignment="Top" Height="42" Width="26" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="label_Copy15" Content="h" HorizontalAlignment="Left" Margin="434,526,0,0" VerticalAlignment="Top" Height="34" Width="26" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="StartNewGameButton" Content="New Game" Margin="0,0,10,11" Click="StartNewGame" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="74"/>
+        <Button x:Name="StartNewGameButton" Content="New Game" Margin="510,0,10,11" Click="StartNewGame" Height="33" VerticalAlignment="Bottom"/>
         <Label x:Name="label1" Content="Current player: " HorizontalAlignment="Left" Margin="138,24,0,0" VerticalAlignment="Top" Width="140" FontSize="20"/>
         <Label x:Name="CurrentPlayerLabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,24,0,0" FontSize="20"/>
         <Label x:Name="WarningLabel" Content="" HorizontalAlignment="Left" Margin="156,56,0,0" VerticalAlignment="Top" Width="184" Foreground="#FFFF0101"/>

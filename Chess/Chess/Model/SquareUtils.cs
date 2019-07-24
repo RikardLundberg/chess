@@ -10,7 +10,7 @@ namespace Chess.Model
     {
         public static Square[,] board { get; set; }
 
-        public static Square[] GetDiagonals(Square CurrentPosition, PieceColor FriendlyColor, bool IgnoreObstacles = false)
+        public static Square[] GetDiagonals(Square CurrentPosition, PieceColor FriendlyColor)
         {
             GetColAndRowFromName(CurrentPosition.Name, out int column, out int row);
             var ValidSquares = new List<Square>();
@@ -73,6 +73,55 @@ namespace Chess.Model
                 }
             }
             return ValidSquares.ToArray();
+        }
+
+        public static Square[] GetKingSquares(Square CurrentPosition, PieceColor FriendlyColor)
+        {
+            var ValidSquares = new List<Square>();
+            if (CurrentPosition.Column + 1 < 8)
+                ValidSquares.AddRange(AddRowsOnKingsColumn(CurrentPosition.Column + 1, CurrentPosition.Row, FriendlyColor));
+
+            if(CurrentPosition.Column - 1 >= 0)
+                ValidSquares.AddRange(AddRowsOnKingsColumn(CurrentPosition.Column - 1, CurrentPosition.Row, FriendlyColor));
+
+            if (CurrentPosition.Row + 1 < 8)
+            {
+                Square square = GetSquareFromName(GetSquareNameFromColAndRow(CurrentPosition.Column, CurrentPosition.Row + 1));
+                if (square.Piece == null || square.Piece.Color != FriendlyColor)
+                    ValidSquares.Add(square);
+            }
+
+            if (CurrentPosition.Row - 1 >= 0)
+            {
+                Square square = GetSquareFromName(GetSquareNameFromColAndRow(CurrentPosition.Column, CurrentPosition.Row - 1));
+                if (square.Piece == null || square.Piece.Color != FriendlyColor)
+                    ValidSquares.Add(square);
+            }
+            return ValidSquares.ToArray();
+        }
+
+        private static List<Square> AddRowsOnKingsColumn(int column, int midRow, PieceColor FriendlyColor)
+        {
+            var ValidSquares = new List<Square>();
+
+            Square midSquare = GetSquareFromName(GetSquareNameFromColAndRow(column, midRow));
+            if (midSquare.Piece == null || midSquare.Piece.Color != FriendlyColor)
+                ValidSquares.Add(midSquare);
+
+            if (midRow + 1 < 8)
+            {
+                Square square = GetSquareFromName(GetSquareNameFromColAndRow(column, midRow+1));
+                if (square.Piece == null || square.Piece.Color != FriendlyColor)
+                    ValidSquares.Add(square);
+            }
+
+            if (midRow - 1 >= 0)
+            {
+                Square square = GetSquareFromName(GetSquareNameFromColAndRow(column, midRow - 1));
+                if (square.Piece == null || square.Piece.Color != FriendlyColor)
+                    ValidSquares.Add(square);
+            }
+            return ValidSquares;
         }
 
         private static bool AddOnFriendlyCondition(Square square, List<Square> validSquares, PieceColor FriendlyColor)
@@ -179,12 +228,6 @@ namespace Chess.Model
             }
 
             return validSquares.ToArray();
-        }
-
-        public static Square[] GetKingSquares()
-        {
-            return new Square[0];
-
         }
 
         public static string GetSquareNameFromColAndRow(int column, int row)

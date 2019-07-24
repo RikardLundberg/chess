@@ -51,9 +51,25 @@ namespace Chess.Controller
             {
                 PlacePiece(new Bishop(board[2, 7], PieceColor.Black)),
                 PlacePiece(new Bishop(board[5, 7], PieceColor.Black)),
+
                 PlacePiece(new Pawn(board[0, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[1, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[2, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[3, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[4, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[5, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[6, 6], PieceColor.Black)),
+                PlacePiece(new Pawn(board[7, 6], PieceColor.Black)),
+
+                PlacePiece(new Knight(board[1, 7], PieceColor.Black)),
+                PlacePiece(new Knight(board[6, 7], PieceColor.Black)),
+
                 PlacePiece(new Rook(board[0, 7], PieceColor.Black)),
-                PlacePiece(new Queen(board[3, 7], PieceColor.Black))
+                PlacePiece(new Rook(board[7, 7], PieceColor.Black)),
+
+                PlacePiece(new Queen(board[3, 7], PieceColor.Black)),
+
+                PlacePiece(new King(board[4, 7], PieceColor.Black))
 
             };
         }
@@ -64,9 +80,25 @@ namespace Chess.Controller
             {
                 PlacePiece(new Bishop(board[2, 0], PieceColor.White)),
                 PlacePiece(new Bishop(board[5, 0], PieceColor.White)),
+
                 PlacePiece(new Pawn(board[0, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[1, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[2, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[3, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[4, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[5, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[6, 1], PieceColor.White)),
+                PlacePiece(new Pawn(board[7, 1], PieceColor.White)),
+
+                PlacePiece(new Knight(board[1, 0], PieceColor.White)),
+                PlacePiece(new Knight(board[6, 0], PieceColor.White)),
+
                 PlacePiece(new Rook(board[0, 0], PieceColor.White)),
-                PlacePiece(new Queen(board[3, 0], PieceColor.White))
+                PlacePiece(new Rook(board[7, 0], PieceColor.White)),
+
+                PlacePiece(new Queen(board[3, 0], PieceColor.White)),
+
+                PlacePiece(new King(board[4, 0], PieceColor.White))
 
             };
         }
